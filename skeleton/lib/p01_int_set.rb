@@ -1,19 +1,26 @@
 class MaxIntSet
+  attr_reader :store
   def initialize(max)
+    @store = Array.new(max, false)
   end
 
   def insert(num)
+    raise 'Out of bounds' if !is_valid?(num)
+    @store[num] = true
   end
 
   def remove(num)
+    @store[num] = false
   end
 
   def include?(num)
+    @store[num] == true
   end
 
   private
 
   def is_valid?(num)
+    num < @store.length && num >= 0
   end
 
   def validate!(num)
