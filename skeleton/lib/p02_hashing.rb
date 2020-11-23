@@ -15,13 +15,13 @@ end
 
 class String
   def hash
-    string = ''
-    self.each_char.with_index do |ele, i|
+    result = 0
+    self.each_char do |ele|
       # id = ele.object_id.to_s
-      id = ele.object_id.to_i * i
-      string += id.to_s
+      id = ele.object_id
+      result += id
     end
-    string.to_i
+    result
   end
 end
 
