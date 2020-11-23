@@ -84,8 +84,8 @@ class ResizingIntSet
 
   def remove(num) #O(n)
     if include?(num)
-      @store[num % @store.length].delete(num)
-      @count -= 1
+        @store[num % @store.length].delete(num)
+        @count -= 1
     end
   end
 
