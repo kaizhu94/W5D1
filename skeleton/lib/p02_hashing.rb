@@ -1,27 +1,31 @@
+require "byebug"
 class Integer
   # Integer#hash already implemented for you
 end
 
 class Array
   def hash
-    string = ''
+    # debugger
+    final_id = 0
     self.each do |ele|
-      id = ele.object_id.to_s
-      string += id
+      # debugger
+      id = ele.object_id.hash
+      final_id += id
     end
-    string.to_i
+    # p string.to_i
+    final_id
   end
 end
 
 class String
   def hash
-    string = ''
+    final_id
     self.each_char.with_index do |ele, i|
       # id = ele.object_id.to_s
       id = ele.object_id.to_i * i
-      string += id.to_s
+      final_id += id
     end
-    string.to_i
+    final_id
   end
 end
 
